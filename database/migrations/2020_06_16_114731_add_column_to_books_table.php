@@ -29,7 +29,9 @@ class AddColumnToBooksTable extends Migration
     {
         Schema::table('books', function (Blueprint $table) {
             
+            $table->dropColumn('publication_date');
             $table->dropColumn('price');
+            
         });
     }
 }
