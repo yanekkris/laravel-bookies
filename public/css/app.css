@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 3rem;
+}
+
+a {
+  padding: 0.7rem 2rem;
+  color: #996506;
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fae3b8;
+}
+.header__logo {
+  color: #d3aa26;
+  letter-spacing: 2px;
+}
+.header nav a {
+  padding: 0.5rem 3rem;
+}
+/*# sourceMappingURL=app.css.map*/
