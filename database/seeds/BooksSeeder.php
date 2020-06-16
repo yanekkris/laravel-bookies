@@ -15,7 +15,7 @@ class BooksSeeder extends Seeder
 
        foreach($data as $book)
        {
-            // insert a record into the books table
+           
        }
     }
 }

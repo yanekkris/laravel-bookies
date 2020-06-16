@@ -14,7 +14,9 @@ class AddColumnToBooksTable extends Migration
     public function up()
     {
         Schema::table('books', function (Blueprint $table) {
-            //
+            $table->float('price')->nullable()->after('image');
+
+            $table->datetime('publication_date')->nullable()->after('price');
         });
     }
 
@@ -26,7 +28,8 @@ class AddColumnToBooksTable extends Migration
     public function down()
     {
         Schema::table('books', function (Blueprint $table) {
-            //
+            
+            $table->dropColumn('price');
         });
     }
 }
