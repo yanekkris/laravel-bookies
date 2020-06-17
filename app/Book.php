@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Author;
 
 class Book extends Model
 {
@@ -10,7 +11,7 @@ class Book extends Model
 
     public function publisher()
     {
-        return $this->belongsTo('App\Publisher');
+        return $this->belongsTo('App\Publisher', 'publisher_id');
     }
 
     public function cartItem()
@@ -18,7 +19,13 @@ class Book extends Model
         return $this->belongsTo('App\CartItem');
     }
 
-    public function reviews() {
-        return $this->hasMany('App\Review');
+    public function reviews() 
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    public function authors() 
+    {
+        return $this->belongsToMany(Author::class);
     }
 }

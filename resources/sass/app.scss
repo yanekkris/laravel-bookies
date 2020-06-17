@@ -1,37 +1,8 @@
-* {
-    box-sizing: border-box;
-}
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
 
-html {
-    font-family: Arial, Helvetica, sans-serif;
-}
+// Variables
+@import 'variables';
 
-body {
-    margin: 0;
-    padding: 3rem;
-}
-a {
-    padding: 0.7rem 2rem;
-    color: rgb(153, 101, 6);
-    text-decoration: none;
-}
-
-nav {
-    display: flex;
-}
-
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgb(250, 227, 184);
-    &__logo {
-        color: rgb(211, 170, 38);
-        letter-spacing: 2px;
-    }
-    nav {
-        a {
-            padding: 0.5rem 3rem;
-        }
-    }
-}
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';

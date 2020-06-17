@@ -58,3 +58,11 @@ Route::get('/books/{book_id}/reviews/{review_id}', 'ReviewController@show');
 Route::get('/cart', 'CartController@index');
 
 Route::post('/add-to-cart', 'CartController@add');
+
+
+//Authors routes
+
+Route::get('/authors', 'AuthorController@index')->name('authors.index');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
