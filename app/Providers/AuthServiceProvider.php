@@ -25,6 +25,11 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::define('delete_reviews', function($user) {
+        
+            //should this user be able to delete reviews?
+            return $user->name == 'Alex'; //only user with id will return true
+
+        });
     }
 }

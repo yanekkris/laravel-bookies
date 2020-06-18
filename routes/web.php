@@ -50,6 +50,9 @@ Route::put('/publishers/{id}', 'PublisherController@update')->name('publishers.u
 Route::post('/books/{book_id}/review', 'ReviewController@create')->name('books.create');
 Route::get('/books/{book_id}/reviews/{review_id}', 'ReviewController@show');
 
+Route::delete('/reviews/{revies_id}', 'ReviewController@delete')->name('reviews.delete');
+
+Auth::routes();
 
 
 //Cart routes
@@ -66,3 +69,15 @@ Route::get('/authors', 'AuthorController@index')->name('authors.index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+//Bookshops routes
+
+Route::get('/bookshops', 'BookshopController@index')->name('bookshops.index');
+Route::get('/bookshops/create', 'BookshopController@create')->name('bookshops.create');
+Route::post('/bookshops', 'BookshopController@store')->name('bookshops.store');
+
+Route::get('/bookshops/{bookshop_id}', 'BookshopController@show')->name('bookshops.show')->where('bookshop_id', '[0-9]+');
+
+Route::post('/bookshops/{bookshop_id}/add_book', 'BookshopController@addBook')->name('bookshops.addBook');
+Route::post('/bookshops/{bookshop_id}/remove_book', 'BookshopController@removeBook')->name('bookshops.removeBook');

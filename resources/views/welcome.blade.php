@@ -87,6 +87,7 @@
                 <div class="links">
                     <a href="/books">Books</a>
                     <a href="/publishers">Publishers</a>
+                    <a href="/bookshops">Bookshops</a>
                 </div>
             </div>
         </div>

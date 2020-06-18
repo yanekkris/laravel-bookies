@@ -7,9 +7,21 @@
 <img src="{{ $book->image }}">
 
 @foreach ($book->reviews as $review)
-<h3>Review {{$review->id}}</h3>
-<p>{{$review->text}}</p>
-<p>{{$review->rating}}</p>
+
+    <h3>Review {{$review->id}}</h3>
+    <p>{{$review->text}}</p>
+    <p>{{$review->rating}}</p>
+
+    @can('delete_reviews')
+
+        <form action="{{ route('reviews.delete', [ $review->id ]) }}" method="post">
+            @method('delete')
+            @csrf
+            <input type="submit" value="Delete">
+        </form>
+
+    @endcan
+
 @endforeach
 
 <form method="post" action="/add-to-cart">
@@ -17,7 +29,7 @@
     <input type="hidden" name="book_id" value="{{ $book->id}}">
     <input type="number" name="count">
    <button>Add To Cart</button>
-</form>
+</>
 
 @if (Session::has('success_message'))
     
@@ -37,13 +49,27 @@
         </div>
     @endif
 
-<form method="post" action="/books/{{$book->id}}/review">
-    @csrf
-    <input type="hidden" name="book_id" value="{{ $book->id}}">
-    <textarea name="review" cols="30" rows="15"
-    placeholder="Write some review..."></textarea>
-    <input type="number" name="rating" placeholder="Rating">
-   <button>Add Review</button>
-</form>
+    @auth
+        <form method="post" action="/books/{{$book->id}}/review">
+            @csrf
+            <input type="hidden" name="book_id" value="{{ $book->id}}">
+            <textarea name="review" cols="30" rows="15"
+            placeholder="Write some review..."></textarea>
+            <input type="number" name="rating" placeholder="Rating">
+        <button>Add Review</button>
+        </form>
+
+        @else
+
+            <h1>Please log in to submit reviews</h1>
+
+    @endauth
+
+    @guest
+        
+        <p>
+        You can log-in here: <a href="{{route('login')}}">Login</a>
+        </p>
+    @endguest
 
 @endsection
