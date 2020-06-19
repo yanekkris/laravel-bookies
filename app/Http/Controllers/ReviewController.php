@@ -32,15 +32,14 @@ class ReviewController extends Controller
     public function delete($review_id)
     {
         if (\Gate::allows('delete_reviews')){
-            //delete the review
-            $review = Review::finOrFail($review_id);
+        //delete the review
+        $review = Review::finOrFail($review_id);
 
-            $review->delete();
+        $review->delete();
 
-            session()->flask('success_message', 'Review was deleted');
-
+        session()->flask('success_message', 'Review was deleted');
         }
-
+        
         return redirect()->action('BookController@show', [ $review->book_id ]);
         
     }

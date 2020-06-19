@@ -1,8 +1,120 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url("https://fonts.googleapis.com/css?family=Nunito");
 
 // Variables
-@import 'variables';
+@import "variables";
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
+
+//basic
+* {
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+// header
+
+.header {
+    padding: 2rem 3rem;
+    display: flex;
+    flex-direction: row;
+    &__logo {
+        color: rgb(49, 112, 96);
+        text-align: center;
+        width: 200px;
+    }
+    nav {
+        padding: 0.4rem 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        a {
+            padding: 0.4rem 1rem;
+        }
+    }
+}
+// aside
+.aside {
+    width: 500px;
+    margin: 2rem;
+    padding: 2rem 1rem;
+    border-radius: 15px;
+    background-color: rgb(241, 241, 241);
+    height: 400px;
+    nav {
+        padding: 0.4rem 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+}
+
+// Related Books
+
+.container__related_books {
+    width: 80%;
+    margin: 3rem auto;
+    padding: 3rem 2rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    .related_book {
+        padding: 2rem;
+        width: 24%;
+        height: 540px;
+        border-radius: 15px;
+        box-shadow: rgb(214, 214, 214) 0px 8px 15px;
+        margin-bottom: 2rem;
+        .title {
+            font-size: 1.2rem;
+        }
+        &_img {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+            height: 60%;
+            width: 100%;
+            img {
+                max-height: 100%;
+            }
+        }
+    }
+}
+
+.add__related_book {
+    width: 40%;
+    margin: 1rem auto;
+    select {
+        width: 80%;
+        margin-right: 1rem;
+    }
+}
+
+button,
+input[type="submit"] {
+    background-color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 0.5rem 1rem;
+    box-shadow: rgb(216, 216, 216) 0px 5px 15px;
+}
+
+select {
+    border: none;
+    background-color: rgb(64, 116, 103);
+    color: rgb(202, 226, 220);
+    border-radius: 15px;
+    padding: 0.3rem 0.6rem;
+}

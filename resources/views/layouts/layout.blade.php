@@ -9,9 +9,13 @@
     <title>{{$title ?? ''}} | Books Project</title>
 </head>
 <body>
-    @include('partials/navigation')
-
-    @yield('content')
+        @include('partials/header')
+    <main>
+        @include('partials/navigation')
+        <section>
+            @yield('content')
+        </section>
+    </main>
 
 </body>
 </html>

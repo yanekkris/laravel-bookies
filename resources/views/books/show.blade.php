@@ -12,7 +12,7 @@
     <p>{{$review->text}}</p>
     <p>{{$review->rating}}</p>
 
-    @can('delete_reviews')
+    @can('admin')
 
         <form action="{{ route('reviews.delete', [ $review->id ]) }}" method="post">
             @method('delete')
@@ -29,7 +29,8 @@
     <input type="hidden" name="book_id" value="{{ $book->id}}">
     <input type="number" name="count">
    <button>Add To Cart</button>
-</>
+</form>
+<br>
 
 @if (Session::has('success_message'))
     
@@ -66,10 +67,50 @@
     @endauth
 
     @guest
-        
-        <p>
-        You can log-in here: <a href="{{route('login')}}">Login</a>
-        </p>
+        <p>You can log-in here: <a href="{{route('login')}}">Login</a></p>
     @endguest
+
+    {{-- related books container--}}
+    <div class="add__related_book">
+        @can('admin')
+
+            <form action="{{ action('BookController@addRelatedBook', $book->id)}}" method="post">
+                @csrf
+                <select name="related_id" id="related_id">
+                    @foreach ($books as $b)
+                    <option value="{{$b->id}}">{{$b->title}}</option>
+                    @endforeach
+                </select>
+                <input type="submit" value="Add">
+            </form>
+
+        @endcan
+    </div>
+
+    <div class="container__related_books">
+        @foreach ($book->relatedBooks as $item)
+            <div class="related_book">
+                <div class="related_book_img">
+                    <img src="{{$item->image}}" alt="">
+                </div>
+                <h4 class="title">{{$item->title}}</h4>
+                <p>{{$item->authors}}</p>
+
+                @can('admin')
+
+                    <form action="{{ action('BookController@removeRelatedBook', $book->id)}}" method="post">
+                        @method('delete')
+                        @csrf
+                        <input type="hidden" name="related_id" value="{{ $item->id}}">
+                        <input type="submit" value="Delete">
+                    </form>
+
+                @endcan
+
+            </div> 
+
+        @endforeach
+
+    </div>
 
 @endsection
