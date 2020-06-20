@@ -12,7 +12,7 @@
         @include('partials/header')
     <main>
         @include('partials/navigation')
-        <section>
+        <section class="main">
             @yield('content')
         </section>
     </main>

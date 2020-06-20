@@ -39,7 +39,7 @@ body {
 }
 // aside
 .aside {
-    width: 500px;
+    width: 350px;
     margin: 2rem;
     padding: 2rem 1rem;
     border-radius: 15px;
@@ -57,6 +57,12 @@ body {
 main {
     display: flex;
     flex-direction: row;
+}
+
+// main styles
+
+.main {
+    padding: 2rem 4rem 0rem 0rem;
 }
 
 // Related Books
@@ -117,4 +123,30 @@ select {
     color: rgb(202, 226, 220);
     border-radius: 15px;
     padding: 0.3rem 0.6rem;
+}
+
+// bookshops.show style
+
+.bookshop_books {
+    background-color: rgb(176, 211, 180);
+    padding: 1rem;
+    margin: 3rem 0rem;
+    border-radius: 15px;
+    &__book {
+        display: flex;
+        flex-direction: row;
+        border-radius: 15px;
+        justify-content: space-between;
+        align-content: center;
+        margin-bottom: 2rem;
+        padding: 2rem 3rem;
+        background-color: rgb(246, 253, 246);
+    }
+    &__img {
+        height: 14rem;
+
+        img {
+            height: 100%;
+        }
+    }
 }

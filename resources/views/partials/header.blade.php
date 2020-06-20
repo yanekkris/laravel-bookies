@@ -10,7 +10,7 @@
         <a href="{{ route('reservations.create')}}">New Reservation</a>
 
         @auth
-            <a href="{{ route('bookshops.index')}}">My reservations</a>
+            <a href="{{ route('reservations.index')}}">My reservations</a>
         @endauth
     </nav>
 </header>

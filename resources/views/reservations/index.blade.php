@@ -10,14 +10,20 @@
     @endif
 
     <table class="table table-striped">
+        <tr>
+            <th>Book</th>
+            <th>User</th>
+            <th>From</th>
+            <th>To</th>
+        </tr>
         @foreach ($reservations as $reservation)
             <tr>
-                <th>{{$reservation->book->title}}</th>
-                <th>{{$reservation->user_id}}</th>
-                <th>{{$reservation->from}}</th>
-                <th>{{$reservation->to}}</th>
+                <td>{{ $reservation->book->title }}</td>
+                <td>{{ $reservation }}</td>
+                <td>{{ $reservation->from }}</td>
+                <td>{{ $reservation->to }}</td>
             </tr>
-            <a href="{{action('ReservationController@delete')}}">X</a>
+            {{-- <a href="{{action('ReservationController@delete')}}">X</a> --}}
         @endforeach
     </table>
 

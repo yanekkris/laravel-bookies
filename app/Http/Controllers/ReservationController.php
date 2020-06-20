@@ -12,8 +12,8 @@ class ReservationController extends Controller
 {
     public function index()
     {
-        $user = Auth::user();
-        $reservations = Reservation::where('user_id', $user->id);
+       
+        $reservations = Reservation::all();
 
         return view('reservations.index', compact('reservations'));
     }
@@ -21,9 +21,8 @@ class ReservationController extends Controller
     public function create()
     {
         $books = Book::all();
-        $user = Auth::user();
 
-        return view('reservations.create', compact('books', 'user'));
+        return view('reservations.create', compact('books'));
     }
 
     public function store(Request $request)
@@ -38,7 +37,7 @@ class ReservationController extends Controller
         if(!$result){
             $reservation = new Reservation;
 
-        $reservation->book_id = $request->input('book_id');
+        $reservation->book_id = Auth::user()->id;
         $reservation->user_id = $request->input('user_id');
         $reservation->from = $request->input('from');
         $reservation->to = $request->input('to');

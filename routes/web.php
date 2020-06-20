@@ -72,6 +72,9 @@ Route::post('/add-to-cart', 'CartController@add');
 //Authors routing
 
 Route::get('/authors', 'AuthorController@index')->name('authors.index');
+
+//Authentication
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -88,9 +91,17 @@ Route::get('/bookshops/{bookshop_id}', 'BookshopController@show')->name('booksho
 Route::post('/bookshops/{bookshop_id}/add_book', 'BookshopController@addBook')->name('bookshops.addBook');
 Route::post('/bookshops/{bookshop_id}/remove_book', 'BookshopController@removeBook')->name('bookshops.removeBook');
 
+Route::post('/bookshops/{book_id}/edit', 'BookshopController@editStock')->name('bookshops.editStock');
+
 
 //Reservations routing
 
 Route::get('/reservations', 'ReservationController@index')->name('reservations.index');
-Route::get('/reservations/create', 'ReservationController@create')->name('reservations.create');
-Route::post('/reservations', 'ReservationController@store')->name('reservations.store');
+Route::get('/reservations/create', 'ReservationController@create')->name('reservations.create')->middleware('auth');
+Route::post('/reservations', 'ReservationController@store')->name('reservations.store')->middleware('auth');
+
+
+//upload routing
+
+Route::get('upload', 'UploadController@form');
+Route::post('upload', 'UploadContoller@upload');

@@ -6,8 +6,8 @@
     @csrf
         <div>
             <label>
-                {{$user->name}}<br>
-                <input type="hidden" name="user_id" value="{{$user->id}}">
+                {{ Auth::user()->name }}<br>
+                
             </label>
         </div>
         <div>

@@ -12,7 +12,8 @@
         <p>Publisher: {{$b->publisher->title}}</p>
         @endif
         <a href="books/{{ $b->id }}">Read more...</a>
-    </div>
-@endforeach
+    </div>@endforeach
 
+{{$books->links()}}
 @endsection
+

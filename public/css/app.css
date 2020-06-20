@@ -10018,7 +10018,7 @@ body {
 }
 
 .aside {
-  width: 500px;
+  width: 350px;
   margin: 2rem;
   padding: 2rem 1rem;
   border-radius: 15px;
@@ -10036,6 +10036,10 @@ body {
 main {
   display: flex;
   flex-direction: row;
+}
+
+.main {
+  padding: 2rem 4rem 0rem 0rem;
 }
 
 .container__related_books {
@@ -10094,5 +10098,28 @@ select {
   color: #cae2dc;
   border-radius: 15px;
   padding: 0.3rem 0.6rem;
+}
+
+.bookshop_books {
+  background-color: #b0d3b4;
+  padding: 1rem;
+  margin: 3rem 0rem;
+  border-radius: 15px;
+}
+.bookshop_books__book {
+  display: flex;
+  flex-direction: row;
+  border-radius: 15px;
+  justify-content: space-between;
+  align-content: center;
+  margin-bottom: 2rem;
+  padding: 2rem 3rem;
+  background-color: #f6fdf6;
+}
+.bookshop_books__img {
+  height: 14rem;
+}
+.bookshop_books__img img {
+  height: 100%;
 }
 /*# sourceMappingURL=app.css.map*/
